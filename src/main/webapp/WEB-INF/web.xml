@@ -1,0 +1,70 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>HelloMongoServlet</servlet-name>
+        <servlet-class>org.mongodb.example.HelloMongoDBServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>HelloJDBCServlet</servlet-name>
+        <servlet-class>org.mongodb.example.HelloJDBCServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>HelloMongoFromJNDIServlet</servlet-name>
+        <servlet-class>org.mongodb.example.HelloMongoDBFromJNDIServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloMongoServlet</servlet-name>
+        <url-pattern>/HelloMongo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HelloMongoFromJNDIServlet</servlet-name>
+        <url-pattern>/HelloMongoFromJNDI</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HelloJDBCServlet</servlet-name>
+        <url-pattern>/HelloJDBC</url-pattern>
+    </servlet-mapping>
+
+    <resource-ref>
+        <description>
+            Resource reference to a factory for java.sql.Connection instances that may be used for talking to a particular
+            database that is configured in the Context configuration for the web application.
+        </description>
+        <res-ref-name>
+            jdbc/Test
+        </res-ref-name>
+        <res-type>
+            javax.sql.DataSource
+        </res-type>
+        <res-auth>
+            Container
+        </res-auth>
+    </resource-ref>
+
+    <!-- Tomcat -->
+    <resource-ref>
+        <description>
+            Resource reference to a factory for java.sql.Connection instances that may be used for talking to a particular
+            database that is configured in the Context configuration for the web application.
+        </description>
+        <res-ref-name>
+            mongodb/Test
+        </res-ref-name>
+        <res-type>
+            com.mongodb.MongoClient
+        </res-type>
+        <res-auth>
+            Container
+        </res-auth>
+    </resource-ref>
+</web-app>
